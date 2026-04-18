@@ -1,32 +1,32 @@
 const skillList = [
   {
     name: "HTML+CSS",
-    emoji: "💪",
+    level: "advenced",
     color: "#2457E4",
   },
   {
     name: "JavaScript",
-    emoji: "💪",
+    level: "advenced",
     color: "#EBD317",
   },
   {
     name: "Web Design",
-    emoji: "💪",
+    level: "advenced",
     color: "#B9D7A3",
   },
   {
     name: "Git and GitHub",
-    emoji: "👍",
+    level: "intermediate",
     color: "#E3462D",
   },
   {
     name: "React",
-    emoji: "💪",
+    level: "advenced",
     color: "#53D4F7",
   },
   {
     name: "Svelte",
-    emoji: "👶",
+    level: "beginner",
     color: "#FD3200",
   },
 ];
@@ -73,19 +73,24 @@ function SkillList() {
       {skillList.map((skill) => (
         <Skill
           key={skill.name}
-          name={skill.name}
-          emoji={skill.emoji}
-          color={skill.color}
+          // name={skill.name}
+          // emoji={skill.emoji}
+          // color={skill.color}
+          skillObj={skill}
         />
       ))}
     </ul>
   );
 }
 
-function Skill(props) {
+function Skill({ skillObj }) {
   return (
-    <li style={{ background: props.color }} className="skill">
-      {`${props.name} ${props.emoji}`}
+    <li style={{ background: skillObj.color }} className="skill">
+      {`${skillObj.name} `}
+
+      {skillObj.level === "advenced" && "💪"}
+      {skillObj.level === "intermediate" && "👍"}
+      {skillObj.level === "beginner" && "👶"}
     </li>
   );
 }
